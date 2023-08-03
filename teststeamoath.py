@@ -27,13 +27,20 @@ def auth_with_steam():
   auth_url = steam_openid_url + "?" + query_string
   return redirect(auth_url)
 
-@app.route("/authorize")
+@app.route("/authorize", methods = ['POST', 'GET'])
 def authorize():
   returnval = request.args
   linkTosteamauth = '<br><br><a href="http://localhost:5000/auth">Login with steam</a>'
   home = '<a href="http://localhost:5000/">Home</a>'
   userid = str(returnval['openid.claimed_id']).split("/")[-1]
-  return userid + linkTosteamauth + home
+  if request.method == "POST":
+    return "Posting!"
+  return '''<form action="action_to_perform_after_submission" method = "POST">
+    <p>Field1 <input type = "text" name = "Field1_name" /></p>
+    <p>Field2 <input type = "text" name = "Field2_name" /></p>
+    <p>Field3 <input type = "text" name = "Field3_name" /></p>
+    <p><input type = "submit" value = "submit" /></p>
+</form>'''
 
 if __name__ == "__main__":
     app.run()
