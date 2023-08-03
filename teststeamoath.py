@@ -29,16 +29,20 @@ def auth_with_steam():
 
 @app.route("/authorize", methods = ['POST', 'GET'])
 def authorize():
-  returnval = request.args
-  linkTosteamauth = '<br><br><a href="http://localhost:5000/auth">Login with steam</a>'
-  home = '<a href="http://localhost:5000/">Home</a>'
-  userid = str(returnval['openid.claimed_id']).split("/")[-1]
+  if request.method == "GET":
+    returnval = request.args
+    linkTosteamauth = '<br><br><a href="http://localhost:5000/auth">Login with steam</a>'
+    home = '<a href="http://localhost:5000/">Home</a>'
+    userid = str(returnval['openid.claimed_id']).split("/")[-1]
   if request.method == "POST":
-    return "Posting!"
-  return '''<form action="action_to_perform_after_submission" method = "POST">
-    <p>Field1 <input type = "text" name = "Field1_name" /></p>
-    <p>Field2 <input type = "text" name = "Field2_name" /></p>
-    <p>Field3 <input type = "text" name = "Field3_name" /></p>
+    data = request.form
+    print(data["steamidkey"])
+    print(data["gamecode"])
+    return "Posting! "
+  return f'''<form action="/authorize" method = "POST">
+    <p>{userid}</p>
+    <p>Steam id key <input type = "text" name = "steamidkey" /></p>
+    <p>Known Match Game Code <input type = "text" name = "gamecode" /></p>
     <p><input type = "submit" value = "submit" /></p>
 </form>'''
 
