@@ -43,8 +43,8 @@ def authorize():
   return f'''<form action="/authorize" method = "POST">
     <p>{userid}</p>
     <input type = "hidden" name = "steamid" value={userid}>
-    <p>Steam id key <input type = "text" name = "steamidkey" /></p>
-    <p>Known Match Game Code <input type = "text" name = "gamecode" /></p>
+    <p>Steam id key <input type = "text" name = "steamidkey" placeholder = "XXXX-XXXXX-XXXX" required/></p>
+    <p>Known Match Game Code <input type = "text" name = "gamecode" placeholder = "CSGO-xxxxx-xxxxx-xxxxx-xxxxx-xxxxx" required/></p>
     <p><input type = "submit" value = "submit" /></p>
 </form>'''
 
