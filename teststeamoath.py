@@ -34,7 +34,7 @@ def authorize():
     data = request.form
     if findMatchSteamAPI.trueValidation(data["steamid"], data["steamidkey"], data["gamecode"]) == False:
       return auth_with_steam()
-    return "Posting! " + data["steamid"] + " " + data["steamidkey"] + " " + data["gamecode"]
+    return hello()
   
   
   returnval = request.args
@@ -43,9 +43,13 @@ def authorize():
   userid = str(returnval['openid.claimed_id']).split("/")[-1]
   return f'''<form action="/authorize" method = "POST">
     <input type = "hidden" name = "steamid" value={userid}>
-    <p>Steam id key <input type = "text" name = "steamidkey" placeholder = "XXXX-XXXXX-XXXX" required/></p>
-    <p>Known Match Game Code <input type = "text" name = "gamecode" placeholder = "CSGO-xxxxx-xxxxx-xxxxx-xxxxx-xxxxx" required/></p>
+    <p>Your Steam id key and Match game code are required linking your discord is required for access through discord</p>
+    <br>
+    <p>Steam ID Key: <input type = "text" name = "steamidkey" placeholder = "XXXX-XXXXX-XXXX" required/></p>
+    <p>Known Match Game Code: <input type = "text" name = "gamecode" placeholder = "CSGO-xxxxx-xxxxx-xxxxx-xxxxx-xxxxx" required/></p>
     <p>To find your most recent Steam id key and match code go to the following link: <a href="https://help.steampowered.com/en/wizard/HelpWithGameIssue/?appid=730&issueid=128">SteamLink<a/></p>
+    <br>
+    <p>DiscordID: <input type = "text" name = "discordid" placeholder = "18 numbers"/></p>
     <p><input type = "submit" value = "submit" /></p>
 </form>'''
 
