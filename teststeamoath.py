@@ -45,6 +45,7 @@ def authorize():
     <input type = "hidden" name = "steamid" value={userid}>
     <p>Steam id key <input type = "text" name = "steamidkey" placeholder = "XXXX-XXXXX-XXXX" required/></p>
     <p>Known Match Game Code <input type = "text" name = "gamecode" placeholder = "CSGO-xxxxx-xxxxx-xxxxx-xxxxx-xxxxx" required/></p>
+    <p>To find your most recent Steam id key and match code go to the following link: <a href="https://help.steampowered.com/en/wizard/HelpWithGameIssue/?appid=730&issueid=128">SteamLink<a/></p>
     <p><input type = "submit" value = "submit" /></p>
 </form>'''
 
