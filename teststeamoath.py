@@ -46,7 +46,7 @@ def authorize():
     <p>Known Match Game Code: <input type = "text" name = "gamecode" placeholder = "CSGO-xxxxx-xxxxx-xxxxx-xxxxx-xxxxx" required/></p>
     <p>To find your most recent Steam id key and match code go to the following link: <a href="https://help.steampowered.com/en/wizard/HelpWithGameIssue/?appid=730&issueid=128">SteamLink<a/></p>
     <br>
-    <p>Right click your name and copy user ID</p>
+    <p>Open Discord, then right click your name and copy user ID</p>
     <p>DiscordID: <input type = "text" name = "discordid" placeholder = "18 numbers" required/></p>
     <p><input type = "submit" value = "submit" /></p>
 </form>'''
