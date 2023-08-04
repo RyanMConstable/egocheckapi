@@ -16,8 +16,8 @@ def auth_with_steam():
     'openid.identity': "http://specs.openid.net/auth/2.0/identifier_select",
     'openid.claimed_id': "http://specs.openid.net/auth/2.0/identifier_select",
     'openid.mode': 'checkid_setup',
-    'openid.return_to': 'http://127.0.0.1:5000/authorize',
-    'openid.realm': 'http://127.0.0.1:5000'
+    'openid.return_to': 'http://10.0.0.130/authorize',
+    'openid.realm': 'http://10.0.0.130'
   }
 
   query_string = urlencode(params)
