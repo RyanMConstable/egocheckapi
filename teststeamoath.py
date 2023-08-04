@@ -42,7 +42,6 @@ def authorize():
   home = '<a href="http://localhost:5000/">Home</a>'
   userid = str(returnval['openid.claimed_id']).split("/")[-1]
   return f'''<form action="/authorize" method = "POST">
-    <p>{userid}</p>
     <input type = "hidden" name = "steamid" value={userid}>
     <p>Steam id key <input type = "text" name = "steamidkey" placeholder = "XXXX-XXXXX-XXXX" required/></p>
     <p>Known Match Game Code <input type = "text" name = "gamecode" placeholder = "CSGO-xxxxx-xxxxx-xxxxx-xxxxx-xxxxx" required/></p>
