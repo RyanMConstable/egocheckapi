@@ -30,14 +30,13 @@ def authorize():
     data = request.form
     if findMatchSteamAPI.trueValidation(data["steamid"], data["steamidkey"], data["gamecode"]) == False:
       return auth_with_steam()
+    
     #CSGOsql.setDiscordUser(data["discordid"], data["steamid"], data["steamidkey"])
     #CSGOsql.newRecentGame(data["steamid"], data["gamecode"])
     return success()
   
   
   returnval = request.args
-  linkTosteamauth = '<br><br><a href="http://localhost:5000/auth">Login with steam</a>'
-  home = '<a href="http://localhost:5000/">Home</a>'
   userid = str(returnval['openid.claimed_id']).split("/")[-1]
   return f'''<form action="/authorize" method = "POST">
     <input type = "hidden" name = "steamid" value={userid}>
