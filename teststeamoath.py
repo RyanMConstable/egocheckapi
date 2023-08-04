@@ -9,10 +9,6 @@ app.debug = True
 steam_openid_url = 'https://steamcommunity.com/openid/login'
 
 @app.route("/")
-def hello():
-    return '<a href="http://localhost:5000/auth">Login with steam</a>'
-
-@app.route("/auth")
 def auth_with_steam():
 
   params = {
@@ -36,7 +32,7 @@ def authorize():
       return auth_with_steam()
     #CSGOsql.setDiscordUser(data["discordid"], data["steamid"], data["steamidkey"])
     #CSGOsql.newRecentGame(data["steamid"], data["gamecode"])
-    return hello()
+    return success()
   
   
   returnval = request.args
@@ -55,5 +51,9 @@ def authorize():
     <p><input type = "submit" value = "submit" /></p>
 </form>'''
 
+@app.route("/success")
+def success():
+  return "<h1>You may now close your browser</h1>"
+  
 if __name__ == "__main__":
     app.run()
