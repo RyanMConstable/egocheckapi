@@ -1,6 +1,7 @@
 from flask import Flask, redirect, request
 from json import dumps
 from urllib.parse import urlencode
+import findMatchSteamAPI
 
 app = Flask(__name__)
 app.debug = True
@@ -33,6 +34,8 @@ def authorize():
     data = request.form
     print(data["steamidkey"])
     print(data["gamecode"])
+    if findMatchSteamAPI.trueValidation(data["steamid"], data["steamidkey"], data["gamecode"]) == False:
+      return auth_with_steam()
     return "Posting! " + data["steamid"] + " " + data["steamidkey"] + " " + data["gamecode"]
   
   
