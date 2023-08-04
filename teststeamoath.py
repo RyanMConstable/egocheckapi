@@ -1,7 +1,7 @@
 from flask import Flask, redirect, request
 from json import dumps
 from urllib.parse import urlencode
-import findMatchSteamAPI
+import findMatchSteamAPI, CSGOsql
 
 app = Flask(__name__)
 app.debug = True
@@ -34,6 +34,8 @@ def authorize():
     data = request.form
     if findMatchSteamAPI.trueValidation(data["steamid"], data["steamidkey"], data["gamecode"]) == False:
       return auth_with_steam()
+    #CSGOsql.setDiscordUser(data["discordid"], data["steamid"], data["steamidkey"])
+    #CSGOsql.newRecentGame(data["steamid"], data["gamecode"])
     return hello()
   
   
