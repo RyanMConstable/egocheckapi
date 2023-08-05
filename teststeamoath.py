@@ -30,6 +30,7 @@ def auth_with_steam():
 def authorize():
   if request.method == "POST":
     data = request.form
+    steamid, steamidkey, gamecode, discordid = data["steamid"], data["steamidkey"], data["gamecode"], data["discordid"]
     if findMatchSteamAPI.trueValidation(data["steamid"], data["steamidkey"], data["gamecode"]) == False:
       return auth_with_steam()
     
