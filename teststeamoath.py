@@ -3,6 +3,8 @@ from json import dumps
 from urllib.parse import urlencode
 import findMatchSteamAPI, CSGOsql
 
+IP_ADDRESS = '10.0.0.130'
+
 app = Flask(__name__)
 app.debug = True
 
@@ -16,8 +18,8 @@ def auth_with_steam():
     'openid.identity': "http://specs.openid.net/auth/2.0/identifier_select",
     'openid.claimed_id': "http://specs.openid.net/auth/2.0/identifier_select",
     'openid.mode': 'checkid_setup',
-    'openid.return_to': 'http://10.0.0.130/authorize',
-    'openid.realm': 'http://10.0.0.130'
+    'openid.return_to': f'http://{IP_ADDRESS}/authorize',
+    'openid.realm': f'http://{IP_ADDRESS}'
   }
 
   query_string = urlencode(params)
