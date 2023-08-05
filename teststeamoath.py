@@ -31,11 +31,11 @@ def authorize():
   if request.method == "POST":
     data = request.form
     steamid, steamidkey, gamecode, discordid = data["steamid"], data["steamidkey"], data["gamecode"], data["discordid"]
-    if findMatchSteamAPI.trueValidation(data["steamid"], data["steamidkey"], data["gamecode"]) == False:
+    if findMatchSteamAPI.trueValidation(steamid, steamidkey, gamecode) == False:
       return auth_with_steam()
     
-    CSGOsql.setDiscordUser(data["discordid"], data["steamid"], data["steamidkey"])
-    CSGOsql.newRecentGame(data["steamid"], data["gamecode"])
+    CSGOsql.setDiscordUser(discordid, steamid, steamidkey)
+    CSGOsql.newRecentGame(steamid, gamecode)
     return success()
   
   
