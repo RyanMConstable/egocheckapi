@@ -56,7 +56,7 @@ def authorize():
 
 @app.route("/success")
 def success():
-  return "<h1>You may now close your browser</h1>"
+  return "<h1>You are logged in and may close your browser</h1>"
   
 if __name__ == "__main__":
     app.run()
