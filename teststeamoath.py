@@ -3,7 +3,7 @@ from json import dumps
 from urllib.parse import urlencode
 import findMatchSteamAPI, CSGOsql
 
-IP_ADDRESS = '10.0.0.130'
+IP_ADDRESS = 'localhost:5000'
 
 app = Flask(__name__)
 app.debug = True
