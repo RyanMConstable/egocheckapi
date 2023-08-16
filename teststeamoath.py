@@ -34,8 +34,7 @@ def authorize():
     if findMatchSteamAPI.trueValidation(steamid, steamidkey, gamecode) == False:
       return auth_with_steam()
     
-    CSGOsql.setDiscordUser(discordid, steamid, steamidkey)
-    CSGOsql.newRecentGame(steamid, gamecode)
+    CSGOsql.newUser(discordid, steamid, steamidkey, gamecode)
     return success()
   
   
